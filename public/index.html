@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Portfolio Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Dynamic Portfolio Builder</h1>
+    <div id="auth-area">
+      <button id="btn-login">Log in</button>
+      <button id="btn-register">Register</button>
+      <button id="btn-logout" class="hidden">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="auth-forms" class="card">
+      <div id="register-form" class="auth-panel hidden">
+        <h2>Register</h2>
+        <input id="reg-email" placeholder="Email" />
+        <input id="reg-password" type="password" placeholder="Password" />
+        <button id="reg-submit">Register</button>
+      </div>
+
+      <div id="login-form" class="auth-panel hidden">
+        <h2>Login</h2>
+        <input id="login-email" placeholder="Email" />
+        <input id="login-password" type="password" placeholder="Password" />
+        <button id="login-submit">Login</button>
+      </div>
+      <div id="not-logged" class="auth-panel">
+        <p>Login or register to create your portfolio and export as PDF.</p>
+      </div>
+    </section>
+
+    <section id="portfolio-area" class="card hidden">
+      <div class="form-grid">
+        <div class="col">
+          <h3>Personal</h3>
+          <input id="full_name" placeholder="Full name" />
+          <input id="contact" placeholder="Contact (phone/email)" />
+          <input type="file" id="photo" accept="image/png, image/jpeg" />
+          <textarea id="bio" placeholder="Short bio"></textarea>
+
+          <h3>Skills</h3>
+          <input id="soft_skills" placeholder="Soft skills (comma separated)" />
+          <input id="technical_skills" placeholder="Technical skills (comma separated)" />
+
+          <h3>Academics (optional)</h3>
+          <textarea id="academics" placeholder="Institute, degree, year, grade - one per line"></textarea>
+        </div>
+
+        <div class="col">
+          <h3>Work Experience</h3>
+          <textarea id="experience" placeholder="Company | duration | responsibilities (one per line)"></textarea>
+
+          <h3>Projects / Publications (optional)</h3>
+          <textarea id="projects" placeholder="Project name - short description"></textarea>
+
+          <div class="actions">
+            <button id="btn-preview">Preview</button>
+            <button id="btn-save">Save to DB</button>
+            <button id="btn-pdf">Generate PDF</button>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <h3>Preview</h3>
+      <div id="preview" class="portfolio-preview card">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Built for CSE412 Lab — Dynamic Portfolio</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
